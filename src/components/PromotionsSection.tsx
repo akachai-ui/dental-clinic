@@ -34,7 +34,7 @@ export default function PromotionsSection({ onOpenBooking }: PromotionsSectionPr
       installmentText: 'ผ่อน 0% เพียง ฿8,900 / ด. (10 ด.)',
       badge: 'ยอดนิยมอันดับ 1 🔥',
       badgeColor: 'from-amber-600 to-amber-500',
-      image: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80',
+      image: '/images/service_invisalign.jpg',
       benefits: [
         'ฟรี! สแกนฟัน 3D iTero เห็นผลล่วงหน้า (5,000.-)',
         'ฟรี! รีเทนเนอร์ใสพรีเมียม 1 คู่ (4,000.-)',
@@ -53,7 +53,7 @@ export default function PromotionsSection({ onOpenBooking }: PromotionsSectionPr
       installmentText: 'พิเศษ ฿8,900 / ซี่ (ปกติ 14,000.-)',
       badge: 'Celebrity Choice 💎',
       badgeColor: 'from-indigo-600 to-blue-500',
-      image: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80',
+      image: '/images/service_veneers.jpg',
       benefits: [
         'ฟรี! ออกแบบรอยยิ้ม Digital Smile Design (DSD)',
         'ฟรี! ทดลองใส่ Mock-up รอยยิ้มก่อนทำจริง',
@@ -72,7 +72,7 @@ export default function PromotionsSection({ onOpenBooking }: PromotionsSectionPr
       installmentText: 'ผ่อน 0% เพียง ฿4,500 / ด. (10 ด.)',
       badge: 'รับประกันตลอดชีพ 🛡️',
       badgeColor: 'from-emerald-600 to-teal-500',
-      image: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=80',
+      image: '/images/service_implant.jpg',
       benefits: [
         'ฟรี! เอกซเรย์ 3D CT Scan วางแผนผ่าตัด (4,000.-)',
         'ฟรี! วางตำแหน่งรากเทียมด้วย 3D Surgical Guide',
@@ -91,7 +91,7 @@ export default function PromotionsSection({ onOpenBooking }: PromotionsSectionPr
       installmentText: 'จ่ายจบเพียง ฿6,900 (ไม่มีบวกเพิ่ม)',
       badge: 'Hot Deal ⚡',
       badgeColor: 'from-rose-600 to-pink-500',
-      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80',
+      image: '/images/service_whitening.jpg',
       benefits: [
         'เห็นผลฟันขาวสว่างชัดเจนทันทีหลังทำ 45 นาที',
         'ฟรี! ขูดหินปูนและขัดฟัน Airflow ก่อนฟอกสีฟัน',
@@ -105,9 +105,9 @@ export default function PromotionsSection({ onOpenBooking }: PromotionsSectionPr
   return (
     <section id="promotions" className="py-16 md:py-24 bg-[#faf8f5] relative overflow-hidden">
       
-      {/* Subtle Background Glow */}
-      <div className="absolute top-0 right-10 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-10 left-10 w-96 h-96 bg-brand-200/20 rounded-full blur-3xl pointer-events-none -z-10" />
+      {/* Subtle Background Glow (Desktop only) */}
+      <div className="hidden md:block absolute top-0 right-10 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="hidden md:block absolute bottom-10 left-10 w-96 h-96 bg-brand-200/20 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -148,7 +148,9 @@ export default function PromotionsSection({ onOpenBooking }: PromotionsSectionPr
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-[0.9]"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0b1329]/90 via-[#0b1329]/30 to-transparent" />
 
@@ -163,7 +165,7 @@ export default function PromotionsSection({ onOpenBooking }: PromotionsSectionPr
                 </div>
 
                 {/* Remaining Slots Tag */}
-                <div className="absolute top-3.5 right-3.5 bg-black/60 backdrop-blur-md text-amber-300 border border-amber-400/30 text-[10px] sm:text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
+                <div className="absolute top-3.5 right-3.5 bg-black/80 text-amber-300 border border-amber-400/30 text-[10px] sm:text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
                   <Clock className="w-3 h-3 text-amber-400" />
                   <span>เหลือ {item.remainingSlots} สิทธิ์</span>
                 </div>

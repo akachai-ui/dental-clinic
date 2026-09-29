@@ -76,6 +76,8 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
 }
 
 body {
@@ -83,6 +85,9 @@ body {
   background: #ffffff;
   font-family: var(--font-prompt), var(--font-kanit), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Custom scrollbar */
@@ -100,11 +105,20 @@ body {
   background: #94a3b8;
 }
 
-/* Hide scrollbar for mobile swipe carousels */
+/* Mobile smooth swipe carousels & touch optimization */
+.no-scrollbar {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+
+/* Off-screen rendering optimization */
+.section-render-opt {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 600px;
 }

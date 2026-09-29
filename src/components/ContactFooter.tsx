@@ -112,9 +112,9 @@ export default function ContactFooter({ onOpenBooking }: ContactFooterProps) {
   return (
     <footer id="contact" className="bg-[#0b1329] text-slate-300 pt-20 pb-16 border-t border-slate-800 relative overflow-hidden">
       
-      {/* Background Subtle Luxury Glow */}
-      <div className="absolute top-0 right-10 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-10 left-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      {/* Background Subtle Luxury Glow (Desktop only) */}
+      <div className="hidden md:block absolute top-0 right-10 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="hidden md:block absolute bottom-10 left-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
         
@@ -138,7 +138,7 @@ export default function ContactFooter({ onOpenBooking }: ContactFooterProps) {
         </div>
 
         {/* 🌟 Social Media Hub Banner (Facebook, IG, LINE, Google Maps) */}
-        <div className="bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-xl">
+        <div className="bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-xl">
           <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 text-center sm:text-left flex items-center justify-center sm:justify-start gap-2">
             <Globe className="w-4 h-4 text-brand-400" />
             <span>ช่องทางโซเชียลมีเดียอย่างเป็นทางการ (Official Channels):</span>
@@ -153,7 +153,7 @@ export default function ContactFooter({ onOpenBooking }: ContactFooterProps) {
                   href={social.url}
                   target="_blank"
                   rel="noreferrer"
-                  className={`p-4 rounded-2xl border ${social.badgeBg} ${social.color} hover:text-white bg-slate-950/60 backdrop-blur-md transition-all duration-300 flex items-center justify-between group shadow-md hover:scale-[1.02]`}
+                  className={`p-4 rounded-2xl border ${social.badgeBg} ${social.color} hover:text-white bg-slate-950 transition-colors duration-300 flex items-center justify-between group shadow-md hover:scale-[1.02]`}
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors">
@@ -177,7 +177,7 @@ export default function ContactFooter({ onOpenBooking }: ContactFooterProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column (7 cols): Main Location & Transportation Box */}
-          <div className="lg:col-span-7 bg-slate-900/85 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-6">
+          <div className="lg:col-span-7 bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-6">
             
             {/* Main Address Heading */}
             <div className="flex items-start gap-4 pb-5 border-b border-slate-800">
@@ -302,14 +302,14 @@ export default function ContactFooter({ onOpenBooking }: ContactFooterProps) {
                 </a>
               </div>
 
-              {/* Map Iframe Frame */}
+              {/* Map Iframe Frame (Optimized for smooth 60fps scrolling) */}
               <div className="w-full h-52 sm:h-60 rounded-2xl overflow-hidden border border-slate-800 relative bg-slate-950">
                 <iframe
                   title="Smile Clinic Google Map Location"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.727649557454!2d100.56708797587823!3d13.730302197621183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29f03d5fa6cf1%3A0xb36b5ea3b118bfa6!2sPhrom%20Phong%20BTS%20Station!5e0!3m2!1sen!2sth!4v1700000000000!5m2!1sen!2sth"
                   width="100%"
                   height="100%"
-                  style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(1.1)' }}
+                  style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

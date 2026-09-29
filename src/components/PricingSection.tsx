@@ -195,7 +195,7 @@ export default function PricingSection({ onOpenBooking }: PricingSectionProps) {
     <section id="pricing" className="py-24 bg-white relative overflow-hidden">
       
       {/* Background Decor */}
-      <div className="absolute top-10 left-10 w-96 h-96 bg-brand-50/60 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="hidden md:block absolute top-10 left-10 w-96 h-96 bg-brand-50/60 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -413,7 +413,7 @@ export default function PricingSection({ onOpenBooking }: PricingSectionProps) {
 
             {/* Right Col: Calculation Result Card */}
             <div className="lg:col-span-6">
-              <div className="bg-slate-900/90 backdrop-blur-md rounded-3xl p-8 border border-slate-700 shadow-2xl space-y-6">
+              <div className="bg-[#0b1329] rounded-3xl p-6 sm:p-8 border border-slate-700 shadow-2xl space-y-6">
                 
                 <div className="flex justify-between items-start border-b border-slate-800 pb-4">
                   <div>

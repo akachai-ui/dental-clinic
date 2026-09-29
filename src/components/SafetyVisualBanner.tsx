@@ -46,7 +46,9 @@ export default function SafetyVisualBanner() {
           <img
             src={item.url}
             alt={item.title}
-            className="w-full h-full object-cover object-center filter brightness-[0.88]"
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover object-center opacity-90"
           />
           {/* Subtle Top & Bottom Gradient Shadows for Seamless Blending */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#0b1329] via-transparent to-[#0b1329]/60" />
@@ -55,7 +57,7 @@ export default function SafetyVisualBanner() {
 
       {/* Floating Minimalist Luxury Pill Tag at the Center-Bottom */}
       <div className="relative z-20 text-center px-4 sm:px-6">
-        <div className="inline-flex items-center gap-2 bg-[#0b1329]/85 backdrop-blur-md border border-brand-500/40 text-brand-300 px-6 py-3 rounded-full text-xs sm:text-sm font-bold shadow-2xl animate-fade-in">
+        <div className="inline-flex items-center gap-2 bg-[#0b1329]/95 border border-brand-500/40 text-brand-300 px-6 py-3 rounded-full text-xs sm:text-sm font-bold shadow-2xl animate-fade-in">
           <ShieldCheck className="w-4 h-4 text-emerald-400" />
           <span>100% HOSPITAL-GRADE STERILITY & CLINICAL SAFETY STANDARD</span>
         </div>
@@ -64,7 +66,7 @@ export default function SafetyVisualBanner() {
       {/* Slider Controls: Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-[#0b1329]/70 hover:bg-[#0b1329] text-white border border-slate-700/80 backdrop-blur-md flex items-center justify-center transition-all hover:scale-110 shadow-2xl"
+        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-[#0b1329]/90 hover:bg-[#0b1329] text-white border border-slate-700/80 flex items-center justify-center transition-transform hover:scale-110 shadow-2xl"
         title="Previous Image"
       >
         <ChevronLeft className="w-6 h-6 text-brand-300" />
@@ -72,14 +74,14 @@ export default function SafetyVisualBanner() {
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-[#0b1329]/70 hover:bg-[#0b1329] text-white border border-slate-700/80 backdrop-blur-md flex items-center justify-center transition-all hover:scale-110 shadow-2xl"
+        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-[#0b1329]/90 hover:bg-[#0b1329] text-white border border-slate-700/80 flex items-center justify-center transition-transform hover:scale-110 shadow-2xl"
         title="Next Image"
       >
         <ChevronRight className="w-6 h-6 text-brand-300" />
       </button>
 
       {/* Slider Pagination Dots */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5 bg-[#0b1329]/80 px-4 py-2 rounded-full border border-white/10">
         {safetyImages.map((_, idx) => (
           <button
             key={idx}

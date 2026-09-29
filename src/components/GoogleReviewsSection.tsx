@@ -111,9 +111,9 @@ export default function GoogleReviewsSection() {
   return (
     <section id="reviews" className="py-16 md:py-24 bg-white relative overflow-hidden">
       
-      {/* Background Decor */}
-      <div className="absolute top-10 right-10 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-10 left-10 w-96 h-96 bg-brand-50/50 rounded-full blur-3xl pointer-events-none -z-10" />
+      {/* Background Decor (Desktop only to prevent mobile GPU lag) */}
+      <div className="hidden md:block absolute top-10 right-10 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="hidden md:block absolute bottom-10 left-10 w-96 h-96 bg-brand-50/50 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -252,6 +252,10 @@ export default function GoogleReviewsSection() {
                     <img
                       src={rev.avatar}
                       alt={rev.author}
+                      width={44}
+                      height={44}
+                      loading="lazy"
+                      decoding="async"
                       className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover border border-slate-200 shadow-sm flex-shrink-0"
                     />
                     <div>
@@ -308,6 +312,8 @@ export default function GoogleReviewsSection() {
                         key={pIdx}
                         src={p}
                         alt="Patient review attachment"
+                        loading="lazy"
+                        decoding="async"
                         className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-xl border border-slate-200 hover:scale-105 transition-transform"
                       />
                     ))}

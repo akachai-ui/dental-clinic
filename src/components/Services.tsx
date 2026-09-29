@@ -26,9 +26,9 @@ export default function Services({ onSelectServiceForBooking }: ServicesProps) {
   return (
     <section id="services" className="py-16 md:py-24 bg-[#faf8f5] relative overflow-hidden">
       
-      {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-brand-100/40 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
+      {/* Background Decor (Desktop only to save mobile GPU) */}
+      <div className="hidden md:block absolute top-0 right-0 w-96 h-96 bg-brand-100/40 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="hidden md:block absolute bottom-0 left-0 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -80,7 +80,7 @@ export default function Services({ onSelectServiceForBooking }: ServicesProps) {
           {filteredServices.map((service) => (
             <div
               key={service.id}
-              className={`w-[84vw] sm:w-[350px] md:w-auto h-[380px] sm:h-[420px] flex-shrink-0 snap-center rounded-3xl overflow-hidden relative shadow-xl hover:shadow-2xl transition-all duration-500 group flex flex-col justify-between p-5 sm:p-6 ${
+              className={`w-[84vw] sm:w-[350px] md:w-auto h-[380px] sm:h-[420px] flex-shrink-0 snap-center rounded-3xl overflow-hidden relative shadow-xl hover:shadow-2xl transition-shadow duration-300 group flex flex-col justify-between p-5 sm:p-6 ${
                 service.popular ? 'ring-2 ring-brand-400/80 shadow-brand-500/20' : 'border border-slate-200/60'
               }`}
             >
@@ -88,7 +88,9 @@ export default function Services({ onSelectServiceForBooking }: ServicesProps) {
               <img
                 src={service.image}
                 alt={service.titleTh}
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
               />
 
               {/* Luxury Gradient Dark Overlays */}
@@ -97,7 +99,7 @@ export default function Services({ onSelectServiceForBooking }: ServicesProps) {
 
               {/* Top Badges */}
               <div className="relative z-10 flex items-center justify-between gap-2">
-                <span className="bg-[#0b1329]/80 backdrop-blur-md text-slate-200 border border-slate-700/60 text-[10px] sm:text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                <span className="bg-[#0b1329]/90 text-slate-200 border border-slate-700/60 text-[10px] sm:text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                   {service.category === 'ortho'
                     ? 'ทันตกรรมจัดฟัน'
                     : service.category === 'cosmetic'

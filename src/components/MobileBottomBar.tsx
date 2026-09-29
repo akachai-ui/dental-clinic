@@ -9,7 +9,7 @@ interface MobileBottomBarProps {
 
 export default function MobileBottomBar({ onOpenBooking }: MobileBottomBarProps) {
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 p-2.5 pb-safe bg-[#0b1329]/95 backdrop-blur-xl border-t border-slate-800/90 shadow-[0_-8px_30px_rgba(0,0,0,0.5)]">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 p-2.5 pb-safe bg-[#0b1329] border-t border-slate-800 shadow-[0_-8px_30px_rgba(0,0,0,0.5)]">
       <div className="flex items-center gap-2 max-w-md mx-auto">
         
         {/* 1. Direct Call Button */}
