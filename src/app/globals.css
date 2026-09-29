@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Default: Modern Cyan/Teal Medical */
+  --brand-50: #f0fdfa;
+  --brand-100: #ccfbf1;
+  --brand-200: #99f6e4;
+  --brand-300: #5eead4;
+  --brand-400: #2dd4bf;
+  --brand-500: #0d9488;
+  --brand-600: #0f766e;
+  --brand-700: #115e59;
+  --brand-800: #134e4a;
+  --brand-900: #042f2e;
+
+  --accent-50: #eff6ff;
+  --accent-500: #2563eb;
+  --accent-600: #1d4ed8;
+}
+
+[data-theme="navy-gold"] {
+  /* Luxury Navy & Warm Gold */
+  --brand-50: #fbf8f2;
+  --brand-100: #f5edd9;
+  --brand-200: #ebd8b3;
+  --brand-300: #dfbf85;
+  --brand-400: #d4a759;
+  --brand-500: #b8862d;
+  --brand-600: #9c6e20;
+  --brand-700: #7a5416;
+  --brand-800: #1e293b;
+  --brand-900: #0b1329;
+
+  --accent-50: #fffbeb;
+  --accent-500: #d97706;
+  --accent-600: #b45309;
+}
+
+[data-theme="rose-gold"] {
+  /* Warm Rose & Premium Pink/Blush */
+  --brand-50: #fff1f2;
+  --brand-100: #ffe4e6;
+  --brand-200: #fecdd3;
+  --brand-300: #fda4af;
+  --brand-400: #fb7185;
+  --brand-500: #e11d48;
+  --brand-600: #be123c;
+  --brand-700: #9f1239;
+  --brand-800: #881337;
+  --brand-900: #4c0519;
+
+  --accent-50: #fdf4ff;
+  --accent-500: #c026d3;
+  --accent-600: #a21caf;
+}
+
+[data-theme="emerald-mint"] {
+  /* Organic & Clean Emerald Mint */
+  --brand-50: #ecfdf5;
+  --brand-100: #d1fae5;
+  --brand-200: #a7f3d0;
+  --brand-300: #6ee7b7;
+  --brand-400: #34d399;
+  --brand-500: #059669;
+  --brand-600: #047857;
+  --brand-700: #065f46;
+  --brand-800: #064e3b;
+  --brand-900: #022c22;
+
+  --accent-50: #f0fdf4;
+  --accent-500: #16a34a;
+  --accent-600: #15803d;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #1e293b;
+  background: #ffffff;
+  font-family: var(--font-prompt), var(--font-kanit), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Hide scrollbar for mobile swipe carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
