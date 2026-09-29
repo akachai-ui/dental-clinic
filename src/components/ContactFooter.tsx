@@ -1,7 +1,28 @@
 'use client';
 
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, MessageCircle, Send, CheckCircle2, ShieldCheck, Compass, Navigation, Train, Bus, Ship, Bike, Car, Sparkles } from 'lucide-react';
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  MessageCircle,
+  Send,
+  CheckCircle2,
+  ShieldCheck,
+  Compass,
+  Navigation,
+  Train,
+  Bus,
+  Ship,
+  Bike,
+  Car,
+  Sparkles,
+  Facebook,
+  Instagram,
+  Globe,
+  ExternalLink
+} from 'lucide-react';
 
 interface ContactFooterProps {
   onOpenBooking: () => void;
@@ -22,8 +43,46 @@ export default function ContactFooter({ onOpenBooking }: ContactFooterProps) {
     phone: '02-123-4567',
     hotline: '089-999-8888',
     line: '@smileclinic',
+    facebook: 'Smile Clinic ทันตกรรมดิจิทัล',
+    instagram: '@smileclinic.bangkok',
     email: 'contact@smileclinic.demo',
+    mapUrl: 'https://maps.google.com/?q=BTS+Phrom+Phong+Bangkok',
   };
+
+  const socialLinks = [
+    {
+      name: 'Facebook',
+      handle: 'Smile Clinic ทันตกรรมดิจิทัล',
+      url: 'https://facebook.com',
+      icon: Facebook,
+      color: 'hover:bg-blue-600 hover:border-blue-500 text-blue-400',
+      badgeBg: 'bg-blue-500/10 border-blue-500/30'
+    },
+    {
+      name: 'Instagram',
+      handle: '@smileclinic.bangkok',
+      url: 'https://instagram.com',
+      icon: Instagram,
+      color: 'hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 hover:border-pink-500 text-pink-400',
+      badgeBg: 'bg-pink-500/10 border-pink-500/30'
+    },
+    {
+      name: 'LINE Official',
+      handle: '@smileclinic',
+      url: 'https://line.me',
+      icon: MessageCircle,
+      color: 'hover:bg-emerald-600 hover:border-emerald-500 text-emerald-400',
+      badgeBg: 'bg-emerald-500/10 border-emerald-500/30'
+    },
+    {
+      name: 'Google Maps',
+      handle: 'Smile Clinic (4.9 ★ 1,280+ รีวิว)',
+      url: 'https://maps.google.com',
+      icon: Compass,
+      color: 'hover:bg-amber-600 hover:border-amber-500 text-amber-400',
+      badgeBg: 'bg-amber-500/10 border-amber-500/30'
+    },
+  ];
 
   const transitIcons = [
     { icon: Train, name: 'BTS พร้อมพงษ์', detail: 'ทางออก 2 เดิน Skywalk 3 นาที', color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/30' },
@@ -51,38 +110,74 @@ export default function ContactFooter({ onOpenBooking }: ContactFooterProps) {
   };
 
   return (
-    <footer id="contact" className="bg-[#0b1329] text-slate-300 pt-24 pb-16 border-t border-slate-800 relative overflow-hidden">
+    <footer id="contact" className="bg-[#0b1329] text-slate-300 pt-20 pb-16 border-t border-slate-800 relative overflow-hidden">
       
       {/* Background Subtle Luxury Glow */}
       <div className="absolute top-0 right-10 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-10 left-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/20 to-amber-600/10 border border-brand-400/40 text-brand-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4 shadow-md">
             <Sparkles className="w-3.5 h-3.5 text-brand-400" />
-            <span>CLINIC LOCATION & CONTACT</span>
+            <span>CLINIC LOCATION, SOCIAL & CONTACT</span>
           </div>
 
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-normal leading-[1.35] sm:leading-[1.35]">
-            <div>ที่ตั้งคลินิกและช่องทางการติดต่อ</div>
+            <div>ที่ตั้งคลินิก แผนที่ และโซเชียลมีเดีย</div>
             <div className="mt-2.5 bg-gradient-to-r from-[#b8862d] via-[#d4a759] to-[#9c6e20] bg-clip-text text-transparent py-1">
-              เดินทางสะดวก พร้อมบริการทุกวัน
+              ติดตามและเดินทางมาได้สะดวกทุกวัน
             </div>
           </h2>
 
           <p className="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
-            คลินิกตั้งอยู่ใจกลางสุขุมวิท ติดสถานี BTS พร้อมพงษ์ มีที่จอดรถ VIP สะดวกสบาย
+            ติดต่อนัดหมาย ปรึกษาเคส หรือติดตามรีวิวเคสจัดฟันใส วีเนียร์ และรากเทียมได้ทุกช่องทาง
           </p>
         </div>
 
-        {/* 🌟 Upper Big Grid: Location Card (Left) & Quick Message Form (Right) */}
+        {/* 🌟 Social Media Hub Banner (Facebook, IG, LINE, Google Maps) */}
+        <div className="bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-xl">
+          <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 text-center sm:text-left flex items-center justify-center sm:justify-start gap-2">
+            <Globe className="w-4 h-4 text-brand-400" />
+            <span>ช่องทางโซเชียลมีเดียอย่างเป็นทางการ (Official Channels):</span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+            {socialLinks.map((social, idx) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={idx}
+                  href={social.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`p-4 rounded-2xl border ${social.badgeBg} ${social.color} hover:text-white bg-slate-950/60 backdrop-blur-md transition-all duration-300 flex items-center justify-between group shadow-md hover:scale-[1.02]`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-black text-white">{social.name}</div>
+                      <div className="text-[11px] text-slate-400 group-hover:text-slate-200 transition-colors truncate max-w-[150px]">
+                        {social.handle}
+                      </div>
+                    </div>
+                  </div>
+                  <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-white transition-colors" />
+                </a>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* 🌟 Main Grid: Location & Transit (Left) + Interactive Map & Form (Right) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left Column (8 cols): Main Location & Transportation Box */}
-          <div className="lg:col-span-7 bg-slate-900/85 backdrop-blur-md rounded-3xl p-6 sm:p-9 border border-slate-800 shadow-2xl space-y-6">
+          {/* Left Column (7 cols): Main Location & Transportation Box */}
+          <div className="lg:col-span-7 bg-slate-900/85 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-6">
             
             {/* Main Address Heading */}
             <div className="flex items-start gap-4 pb-5 border-b border-slate-800">
@@ -157,7 +252,7 @@ export default function ContactFooter({ onOpenBooking }: ContactFooterProps) {
             {/* Action Buttons: Google Maps & LINE */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <a
-                href="https://maps.google.com"
+                href={clinicAddress.mapUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-2 bg-[#b8862d] hover:bg-[#d4a759] text-slate-950 font-black px-6 py-3 rounded-xl text-xs transition-all shadow-lg"
@@ -186,71 +281,100 @@ export default function ContactFooter({ onOpenBooking }: ContactFooterProps) {
 
           </div>
 
-          {/* Right Column (5 cols): Quick Consultation / Inquiry Form */}
-          <div className="lg:col-span-5 bg-slate-900/90 rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-4">
-            <div>
-              <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
-                <Send className="w-4 h-4 text-brand-400" />
-                <span>ส่งข้อความปรึกษาทันตแพทย์</span>
-              </h3>
-              <p className="text-xs text-slate-400 mt-1">
-                กรอกข้อมูลเพื่อให้เจ้าหน้าที่ติดต่อกลับพร้อมประเมินค่าใช้จ่ายเบื้องต้น
-              </p>
+          {/* Right Column (5 cols): Interactive Google Map Preview & Quick Form */}
+          <div className="lg:col-span-5 space-y-6">
+            
+            {/* 🗺️ Interactive Google Map Embed Card */}
+            <div className="bg-slate-900/90 rounded-3xl p-4 sm:p-5 border border-slate-800 shadow-2xl space-y-3">
+              <div className="flex items-center justify-between px-1">
+                <span className="text-xs font-bold text-white flex items-center gap-1.5">
+                  <MapPin className="w-4 h-4 text-brand-400" />
+                  <span>Google Maps (พิกัด BTS พร้อมพงษ์)</span>
+                </span>
+                <a
+                  href={clinicAddress.mapUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[11px] font-semibold text-brand-300 hover:text-white flex items-center gap-1 transition-colors"
+                >
+                  <span>ขยายแผนที่</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
+
+              {/* Map Iframe Frame */}
+              <div className="w-full h-52 sm:h-60 rounded-2xl overflow-hidden border border-slate-800 relative bg-slate-950">
+                <iframe
+                  title="Smile Clinic Google Map Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.727649557454!2d100.56708797587823!3d13.730302197621183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29f03d5fa6cf1%3A0xb36b5ea3b118bfa6!2sPhrom%20Phong%20BTS%20Station!5e0!3m2!1sen!2sth!4v1700000000000!5m2!1sen!2sth"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(1.1)' }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
             </div>
 
-            {formSent ? (
-              <div className="bg-emerald-950/60 border border-emerald-500/50 rounded-2xl p-6 text-center space-y-2 animate-fade-in">
-                <CheckCircle2 className="w-10 h-10 text-emerald-400 mx-auto" />
-                <div className="font-bold text-white text-sm">ได้รับข้อความเรียบร้อยแล้ว</div>
-                <div className="text-xs text-slate-300">เจ้าหน้าที่คลินิกจะติดต่อกลับภายใน 15-30 นาทีครับ</div>
+            {/* Quick Consultation Form */}
+            <div className="bg-slate-900/90 rounded-3xl p-6 sm:p-7 border border-slate-800 shadow-2xl space-y-4">
+              <div>
+                <h3 className="text-base font-bold text-white flex items-center gap-2">
+                  <Send className="w-4 h-4 text-brand-400" />
+                  <span>ส่งข้อความปรึกษาทันตแพทย์</span>
+                </h3>
+                <p className="text-xs text-slate-400 mt-0.5">
+                  กรอกข้อมูลเพื่อให้เจ้าหน้าที่ติดต่อกลับพร้อมประเมินเบื้องต้น
+                </p>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-3">
-                <div>
-                  <label className="block text-[11px] font-bold text-slate-300 mb-1">ชื่อ-นามสกุล ของคุณ *</label>
+
+              {formSent ? (
+                <div className="bg-emerald-950/60 border border-emerald-500/50 rounded-2xl p-5 text-center space-y-2 animate-fade-in">
+                  <CheckCircle2 className="w-8 h-8 text-emerald-400 mx-auto" />
+                  <div className="font-bold text-white text-sm">ได้รับข้อความเรียบร้อยแล้ว</div>
+                  <div className="text-xs text-slate-300">เจ้าหน้าที่คลินิกจะติดต่อกลับภายใน 15-30 นาทีครับ</div>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-2.5">
                   <input
                     type="text"
                     required
-                    placeholder="เช่น คุณสมศรี สุขสมบูรณ์"
+                    placeholder="ชื่อ-นามสกุล ของคุณ"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-700/80 rounded-xl p-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-brand-400"
+                    className="w-full bg-slate-950 border border-slate-700/80 rounded-xl p-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-brand-400"
                   />
-                </div>
 
-                <div>
-                  <label className="block text-[11px] font-bold text-slate-300 mb-1">เบอร์โทรศัพท์ติดต่อ *</label>
                   <input
                     type="tel"
                     required
-                    placeholder="08X-XXX-XXXX"
+                    placeholder="เบอร์โทรศัพท์ (08X-XXX-XXXX)"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-700/80 rounded-xl p-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-brand-400"
+                    className="w-full bg-slate-950 border border-slate-700/80 rounded-xl p-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-brand-400"
                   />
-                </div>
 
-                <div>
-                  <label className="block text-[11px] font-bold text-slate-300 mb-1">ข้อความหรือหัตถการที่สนใจสอบถาม *</label>
                   <textarea
-                    rows={3}
+                    rows={2}
                     required
-                    placeholder="เช่น สอบถามคิวจัดฟันใส Invisalign, โปรโมชันวีเนียร์ ฯลฯ"
+                    placeholder="ข้อความหรือบริการที่สนใจสอบถาม"
                     value={msg}
                     onChange={(e) => setMsg(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-700/80 rounded-xl p-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-brand-400"
+                    className="w-full bg-slate-950 border border-slate-700/80 rounded-xl p-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-brand-400"
                   />
-                </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-[#b8862d] via-[#d4a759] to-[#9c6e20] hover:from-[#d4a759] hover:to-[#b8862d] text-slate-950 font-black py-3.5 rounded-xl text-xs transition-all shadow-lg flex items-center justify-center gap-2"
-                >
-                  <span>ส่งข้อความติดต่อ</span>
-                  <Send className="w-3.5 h-3.5" />
-                </button>
-              </form>
-            )}
+                  <button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-[#b8862d] via-[#d4a759] to-[#9c6e20] hover:from-[#d4a759] hover:to-[#b8862d] text-slate-950 font-black py-3 rounded-xl text-xs transition-all shadow-lg flex items-center justify-center gap-2"
+                  >
+                    <span>ส่งข้อความติดต่อ</span>
+                    <Send className="w-3.5 h-3.5" />
+                  </button>
+                </form>
+              )}
+            </div>
+
           </div>
 
         </div>
